@@ -16,11 +16,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(LinearRegression sample.cc)
+add_subdirectory(matrix-library)
 
 # Testing
-
 include(GoogleTest)
 
 add_executable(LinearRegressionTests sample_test.cc)
-target_link_libraries(LinearRegressionTests gtest_main)
+target_include_directories(LinearRegressionTests PRIVATE ${CMAKE_SOURCE_DIR}/matrix-library/src)
+target_link_libraries(LinearRegressionTests PRIVATE MatrixLibraryAPI gtest_main)
 gtest_discover_tests(LinearRegressionTests)

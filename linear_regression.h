@@ -3,14 +3,15 @@
 
 #include "tensor.h"
 
-class LinearRegression {
+class LinearRegression
+{
 public:
     LinearRegression();
 
     // copy constructor
-    LinearRegression(const LinearRegression& other) = delete;
+    LinearRegression(const LinearRegression &other) = delete;
     // copy assignment operator
-    LinearRegression& operator=(const LinearRegression& other) = delete;
+    LinearRegression &operator=(const LinearRegression &other) = delete;
     ~LinearRegression();
 
 private:

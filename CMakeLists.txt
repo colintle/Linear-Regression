@@ -25,6 +25,6 @@ target_include_directories(LinearRegression PUBLIC ${CMAKE_SOURCE_DIR})
 include(GoogleTest)
 
 add_executable(LinearRegressionTests linear_regression_test.cc)
-target_include_directories(LinearRegressionTests PRIVATE ${CMAKE_SOURCE_DIR}/matrix-library/src)
-target_link_libraries(LinearRegressionTests PRIVATE MatrixLibraryAPI gtest_main)
+# Link tests against the LinearRegression library so the symbols resolve
+target_link_libraries(LinearRegressionTests PRIVATE LinearRegression gtest_main)
 gtest_discover_tests(LinearRegressionTests)

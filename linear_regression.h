@@ -9,8 +9,8 @@
 // D is the number of output dimensions
 class LinearRegression {
 public:
-  LinearRegression(size_t input_dim, size_t output_dim,
-                   double learning_rate, int iterations);
+  LinearRegression(size_t input_dim, size_t output_dim, double learning_rate,
+                   int iterations);
 
   // copy constructor
   LinearRegression(const LinearRegression &other) = delete;
@@ -24,6 +24,9 @@ public:
   // X shape: (K, M)
   matrix_library::Tensor<double>
   predict(const matrix_library::Tensor<double> &X) const;
+
+  const matrix_library::Tensor<double> &get_weights() const;
+  const matrix_library::Tensor<double> &get_bias() const;
 
 private:
   double learning_rate;
